@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- CSSファイルの読み込み -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+  <title>ブクトモ</title>
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <div class="container clearfix">
+      <a href="#mv"><img class="logo" src="img/logo.png" alt="ロゴ"></a>
+      <div class="menu-box"> <!-- ハンバーガー -->
+        <span class="list-bar"></span>
+        <span class="list-bar"></span>
+        <span class="list-bar"></span>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li class="nav-list"><a href="#About">About</a></li>
+          <li class="nav-list"><a href="#ranking">ランキング</a></li>
+          <li class="nav-list"><a href="#contact">新規登録</a></li>
+          <li class="nav-list"><%= link_to "ログイン", new_user_session_path %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- main-visual -->
+  <section id="mv"><!-- 「子要素に<h>タグを含む箱」だからdivは使えない -->
+    <div class="container">
+      <h1 class="mv-title">ブクトモ</h1>
+      <p class="mv-text">本で人と繋がる</p>
+    </div>
+  </section>
+ 
+      <!-- フィーチャー -->
+      <section id="About">
+        <div class="container">
+          <h2 class="heading">About</h2>
+          <p class="heading-text">「本との出会い」「本好き同士のつながり」に特化した、<br>書籍共有サイトです。
+          </p>
+          <div class="strength-group clearfix">
+            <div class="strength">
+              <i class="fa fa-book"></i> <!-- Font Awesomeを利用してアイコンを表示させる -->
+              <h3 class="strength-title">特徴</h3>
+              <p class="strength-text">あああああ
+              </p>
+            </div>
+            <div class="strength">
+              <i class="fa fa-desktop"></i>
+              <h3 class="strength-title">ああああ</h3>
+              <p class="strength-text">あああ
+              </p>
+            </div>
+            <div class="strength">
+              <i class="fa fa-cogs"></i>
+              <h3 class="strength-title">設立経緯</h3>
+              <p class="strength-text">ああああ
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- プロフィール -->
+      <section id="ranking">
+        <div class="container">
+          <h2 class="heading">ランキング</h2>
+          <p class="heading-text">It is a long established fact that a reader will be distracted by the readable<br> content of a page when looking at its layout.<br> The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+          </p>
+          <%# <div class="profile-group clearfix">
+            <div class="left-content">
+            　<h3 class="text-title">いいね！ランキング</h3>
+            　<p class="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur
+              </p> %>
+              <%# <div class="profile-photo"></div> %>
+            <%# </div>
+            <div class="right-content">
+              <h3 class="text-title">読みたい！ランキング</h3>
+              <p class="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur
+              </p>
+              <h3 class="text-title">MySkills</h3>
+              <p class="text">HTML/CSS,JavaScript,JQuery,PhotoShop</p>
+            </div>
+          </div> %>
+        </div>
+      </section>
+
+     <!-- <h1>見出し（h1,h2,h3,h4...と数が大きくなるほど、見出しは小さくなります。h6まであります）</h1>
+          <p>段落（文章のまとまり）</p>
+          <a>リンク</a>
+          <ul>箇条書き</ul> -->
+
+      <!-- コンタクト -->
+      <section id="contact">
+          <div class="container">
+              <h2 class="heading">新規登録</h2>
+              <p class="heading-text">１分ほどで登録できます。</p>
+              <div class="row">
+                  <div class="col-12-md">
+                      <p class="text-center", style="padding-top: 20px; padding-bottom: 90px;"><%= link_to "新規登録", new_user_registration_path, class:"btn btn-default btn-lg" %></p>
+                  </div>
+              </div>
+          <%# <div class="contact-group clearfix">
+            <div class="left-content">
+              <div class="left-content-contact">
+               <h3 class="text-title">Mail</h3>
+               <p class="text">xxx@xxx.com</p>
+               <h3 class="text-title">Tell</h3>
+               <p class="text">000-0000-0000</p>
+              </div>
+            </div>
+            <div class="right-content">
+              <div class="right-content-contact">
+               <h3 class="text-title">SNS</h3>
+               <i class="fab fa-facebook-f"></i>
+               <i class="fab fa-twitter"></i>
+               <i class="fab fa-instagram"></i>
+              </div>
+            </div>
+          </div> %>
+        </div>
+      </section>
+      <!-- フッター -->
+      <footer>
+        <p class="footer-text">©︎ ブクトモ</p>
+      </footer>
+</body>
+</html>

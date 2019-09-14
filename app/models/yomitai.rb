@@ -1,0 +1,2 @@
+class Yomitai < ApplicationRecord
+end

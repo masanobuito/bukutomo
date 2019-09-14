@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+  }
+  
+  /* clearfixはfloatを解除するために、作成するclassです。 */
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  .container{
+      width: 1024px;
+      margin: 0 auto;
+  }
+  
+  /* header */
+  
+  header{
+      width: 100%;
+      height: 70px;
+      background-color: #1c1f21;
+  }
+  
+  .logo{
+      height: 70px;
+      float: left;   /* 要素を右に寄せたり左に寄せたりする */
+  }
+  
+  .nav{
+      float: right;
+  }
+  .nav-list{
+      float: left;
+    //   width: 120px;
+      line-height: 70px; /* 中央寄せしたい文字に line-height: ◯◯px; と指定し、親要素である、「上下中央配置したいボックスの高さ」と「行の高さ」を同じ値にします。 */
+      color: #FAFAFA;
+      padding: 0 30px;   /* （指定２つ）[上下] [左右]、（指定３つ）上 [左右] 下 */
+      list-style: none;  /* リストの先頭に、記号やa,b,c～などのマーカーを追加するもの(noneはそれを消す) */
+      font-size: 16px;
+  }
+  .nav-list a{
+      color: #FAFAFA;
+  }
+  
+  /* main-visual */
+  
+  #mv{
+      width: 100%;
+      height: 650px;
+      text-align: center; /* 要素を軸に文字を中央寄せ */
+      color: #FAFAFA;
+      background: image-url('book.jpg'); /* 背景画像を指定 */
+      background-size: cover; /* 背景画像のサイズを操作（coverは縦横比を保ち、表示エリアに余白がでないように画像が拡大・縮小し、切り取られる） */
+      background-position: center; /* 背景画像の位置を調整するときに使用するプロパティ（center(中央に配置)） */
+  }
+  .mv-title{
+      padding-top: 200px; /* padding=（隣接する要素との間に）隙間が空かない、背景色がつく　margin＝隙間が空く、背景色がつかない */
+      font-size: 64px;
+      color: #FAFAFA;
+  }
+  .mv-text{
+      padding-top: 10px;
+      font-size: 20px;
+      color: #FAFAFA;
+  }
+  
+  /* ポートフォリオ */
+  
+  #About{
+      background-color: #ECEFF1;
+  }
+  .heading{
+      padding-top: 90px;
+      font-size: 32px;
+      color: #000000;
+      text-align: center;
+  }
+  /* 疑似要素の::before（要素の直前に要素もどきが挿入）と::after（要素の直後に要素もどきが挿入） */
+  .heading::after{
+      content: ""; /* contentプロパティは、要素の直前または直後に、""の中に挿入したい文字列や画像などのコンテンツを記述します。今回は、コンテンツを入れないため、""とだけ記述 */
+      display: block; /* displayプロパティで (4章に解説があります)、ブロック要素に指定し、横幅を100%にしています。つまり、空白の要素を横一杯に伸ばし、薄い壁を作っています */
+      width: 70px;
+      height: 3px;
+      margin: 8px auto 0 auto; /* width や height を「px」でも「%」でも指定しない場合、「auto（自動）」という値になります。 */
+      background-color: #EC715F;
+  }
+  .heading-text{
+      padding-top: 30px;
+      font-size: 16px;
+      text-align: center;
+  }
+  .photo-group{
+      width: 920px;
+      padding: 30px 0 90px 0;
+      margin: 0 auto;
+  }
+  .photo{
+      float: left;
+      width: 300px;
+      height: 250px;
+      margin: 10px 10px 0 0;
+      background-size: cover;
+      background-position: center;
+  }
+  .photo:nth-child(-n+3){
+      margin-top: 0;
+  }
+  
+  /* nth-childはセレクタに追加して条件を指定する擬似クラスのひとつで、子要素のn番目(nth)にスタイルを適用させることができます。 */
+  /* 偶数にのみ適用する場合：2nあるいはeven
+  奇数にのみ適用する場合：2n+1あるいはodd
+  n番目に適用する場合：適用したい項目の順番の数値
+  n番目以降すべてに適用する場合：n+適用を開始する項目の数値 */
+  .photo:nth-child(3n){
+      margin-right: 0;
+  }
+  .pt-1{
+      background-image: url('img/sketch.jpg')
+  }
+  .pt-2{
+      background-image: url('img/websuku.png')
+  }
+  .pt-3{
+      background-image: url('img/write.jpg')
+  }
+  .pt-4{
+      background-image: url('img/webcamp.png')
+  }
+  .pt-5{
+      background-image: url('img/talk.jpg')
+  }
+  .pt-6{
+      background-image: url('img/webcamp-mother.png')
+  }
+  
+  /* フィーチャー */
+  
+  #feature{
+      /* background-color: #ffffff */
+      background-size: cover;
+      background-position: center;
+  }
+  
+  .strength-group{
+      padding: 30px 0 90px 0;
+      width: 980px;
+      margin: 0 auto;
+  }
+  .strength{
+      float: left;
+      width: 320px;
+      margin-right: 10px;
+      text-align: center;
+      font-size: 60px; /* Font Awesomeのアイコンはフォント扱い */
+  }
+  /* last-child(最後に記述された要素のみに適用) */
+  .strength:last-child{
+      margin-right: 0;
+  }
+  .strength-title{
+      font-size: 20px;
+      /* color: #000000; */
+      padding: 10px 0;
+  }
+  .strength-text{
+      font-size: 16px;
+      /* color: #000000; */
+      text-align: left;
+  }
+  
+  /* プロフィール */
+  
+  #ranking{
+      background-color: #ECEFF1;
+  }
+  .profile-group{
+      padding: 30px 0 90px 0;
+  }
+  .left-content{
+      float: left;
+      width: 50%
+  }
+  .profile-photo{
+      background-image: url('img/my-icon.jpg');
+      width: 250px;
+      height: 250px;
+      margin: 0 auto;
+      border-radius: 50%; /* 箱の枠線の角を丸める効果を持つプロパティです。px、%などで値を指定することができ、50%で正円を作ることができます。 */
+  }
+  .right-content{
+      float: right;
+      width: 50%
+  }
+  .text-title{
+      font-size: 20px;
+      margin: 20px 0 5px 0;
+  }
+  .text-title:first-child{
+      margin-top: 0;
+  }
+  .text{
+      font-size: 16px;
+  }
+  
+  /* コンタクト */
+  
+  .contact-group{
+      width: 800px;
+      padding: 30px 0 90px 0;
+      margin: 0 auto;
+  }
+  .left-content-contact{
+      margin: 0 auto;
+      width: 130px;
+  }
+  .right-content-contact{
+      margin: 0 auto;
+      width: 170px;
+  }
+  .right-content-contact .fab{
+      font-size: 49px;
+      margin-right: 20px;
+      /* float: left;
+      padding-top: 5px; */
+  }
+  .right-content-contact .fab:last-child{
+      margin-right: 0;
+  }
+  
+  /* フッター */
+  
+  footer{
+      background-color: #1c1f21;
+      height: 60px;
+      width: 100%;
+      line-height: 60px;
+  }
+  .footer-text{
+      font-size: 16px;
+      color: #FAFAFA;
+      text-align: center; /* 文字の行の高さを決めるプロパティです。 */
+  }
+  
+  /* レスポンシブ */
+  
+  @media(max-width: 767px){
+      /* 共通設定 */
+      .container{
+          width: 100%;
+      }
+      .left-content{
+          width: 100%;
+          float: none;
+      }
+      .right-content{
+          float: none;
+          width: 100%;
+      }
+      .sp-none{
+          display: none;
+      }
+      /* ヘッダー */
+      header{
+          height: 50px;
+      }
+      .logo{
+          float: none;
+          height: 50px;
+      }
+           /* ハンバーガー */
+      .menu-box{
+          float: right;
+          width: 40px;
+          height: 40px;
+          margin-right: 5%;
+          border: 1px solid #FAFAFA;
+          margin-top: 5px;
+          margin-bottom: 5px;
+      }
+      .list-bar{
+          display: block;
+          width: 25px;
+          height: 2px;
+          margin: 5px auto;
+          background-color: #FAFAFA;
+      }
+      .list-bar:first-child{
+          margin-top: 10px;
+      }
+      .nav{
+          float: none;
+      }
+      .nav-list{
+          display: none;
+          float: none;
+          width: 100%;
+          line-height: 50px;
+          border-bottom: 1px solid gray;
+          text-align: center;
+          background-color: rgba(0, 0, 0, 0.9)
+      }
+      .nav-list:last-child{
+          border: none;
+      }
+      /* メインヴィジュアル */
+      #mv{
+          padding-top: 50px;
+          background-image: url('img/code.png');
+      }
+      .mv-title{
+          font-size: 40px;
+      }
+      .mv-text{
+          font-size: 18px;
+      }
+      /* ポートフォリオ */
+      #portfolio{
+          padding: 0 5%;
+      }
+      .photo-group{
+          width: 300px;
+      }
+      .photo{
+          float: none;
+      }
+      /* フィーチャー */
+      #feature{
+      background-size: cover;
+      background-position: center;
+      padding: 0 5%;
+      }
+      .strength-group{
+      width: 320px;
+      }
+      .strength{
+      float: none;
+      margin-top: 20px;
+      }
+      .strength:last-child{
+      margin-top: 0;
+      }
+      /* プロフィール */
+      #profile{
+          padding: 0 5%;
+      }
+      .profile-group{
+          text-align: center;
+      }
+  
+      .text-title:first-child{
+          margin-top: 20px;
+      }
+      /* コンタクト */
+      #contact{
+          padding: 0 5%;
+      }
+      .contact-group{
+          width: 100%;
+          text-align: center;
+      }
+      .left-content-contact{
+          width: 100%;
+      }
+      .right-content-contact{
+          width: 100%;
+          margin-top: 20px;
+          /* float: none; */
+      }
+  
+  }

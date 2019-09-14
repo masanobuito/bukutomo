@@ -1,0 +1,16 @@
+<h1><%= @user.name %>さんのページ</h1>
+<div class="container">
+        <div class="row" style="height:200px;margin:100px 0 0 0;">
+                <div class="btn btn-default btn-lg" style="width: 177px;margin: 20px;"><%= link_to "投稿一覧", users_posts_index_path %></div>
+                <div class="btn btn-default btn-lg" style="width: 177px;margin: 20px;"><%= link_to "いいね！一覧", users_favorites_index_path %></div>
+                <br>
+                <div class="btn btn-default btn-lg" style="width: 177px;margin: 20px;"><%= link_to "読みたい！一覧", users_yomitaies_index_path %></div>
+                <div class="btn btn-default btn-lg" style="width: 177px;margin: 20px;"><%= link_to "ユーザー情報編集", edit_user_registration_path %></div>
+        </div>
+        <%# <div class="row" style="height:200px;margin:0 0 0 0;">
+                <div class="btn btn-default" style="background-color:#ededed;">Red</div>
+                <div class="btn btn-default" style="background-color:#dedede;">Blue</div>
+        </div> %>
+</div>
+
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

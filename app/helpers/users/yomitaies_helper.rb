@@ -1,0 +1,2 @@
+module Users::YomitaiesHelper
+end
