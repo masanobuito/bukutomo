@@ -6,10 +6,7 @@ Rails.application.routes.draw do
     get 'favorites/index'
   end
   namespace :users do
-    get 'posts/index'
-    get 'posts/edit'
-    get 'posts/new'
-    get 'posts/show'
+    resources :posts
   end
   namespace :users do
     get 'users/index'
@@ -18,6 +15,8 @@ Rails.application.routes.draw do
   namespace :users do
     get 'homes/index'
   end
+
+
   devise_for :admins, :controllers => {
     :sessions => 'admins/sessions' ,
     :passwords => 'admins/passwords',

@@ -1,18 +1,41 @@
-<h1>投稿一覧</h1>
+
 <div class="container">
-        <div class="row" style="height:100px;width:800px;margin:100px 0 0 0;border: 1px solid #ccc;">
-                <div class="col-sm-2" style="height:100px;border: 1px solid #ccc;">画像
+        <div class="row">
+                <div class="col-sm-6">
+                        <h1><%= @user.name %>さんの投稿一覧</h1>
                 </div>
-                <p class="col-sm-8">タイトル
-                </p>
-                <div class="col-sm-2" style="text-align: right;">
-                        <div class="btn btn-default" style="margin-top:10px;margin-bottom:5px;">
-                                編集
-                        </div>
-                        <br>
-                        <div class="btn btn-default" style="">
-                                削除
-                        </div>
+                <div class="col-sm-6">
+                        <%= link_to '新規追加', new_users_post_path, class:'btn btn-default', style:'margin-top: 23px;' %>
                 </div>
         </div>
 </div>
+
+<% @posts.each do |post| %>
+<div class="container">
+        <%= link_to users_post_path(post.id) do %>
+                <div class="row" style="height:110px;width:800px;margin:20px 0 0 0;border: 1px solid #ccc;">
+                        <div class="col-sm-2" style="height:110px;border: 1px solid #ccc;">
+                                <%= attachment_image_tag post, :image, size: "100x100", fallback: "no_image.jpg" %>
+                        </div>
+                        <div class="col-sm-8">
+                                <p style="font-size: 20px;margin-top: 10px;">
+                                        タイトル：<strong><%= post.title.truncate(22) %></strong>
+                                </p>
+                                作成日時：<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+                                <br>
+                                更新日時：<%= post.updated_at.strftime("%Y-%m-%d %H:%M") %>
+                        </div>
+                        <div class="col-sm-2" style="text-align: right;">
+                                <div style="margin-top:10px;">
+                                        <%= link_to '編集', edit_users_post_path(post), class:'btn btn-default' %>
+                                </div>
+                                <br>
+                                <div style="">
+                                        <%= link_to '削除', users_post_path(post), class:'btn btn-default', method: :delete, data: { confirm: '削除しますか？' } %>
+                                </div>
+                        </div>
+                </div>
+        <% end %>
+</div>
+<% end %>
+
