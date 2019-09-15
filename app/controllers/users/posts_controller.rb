@@ -50,7 +50,7 @@ end
 
   private
   def post_params
-    params.require(:post).permit(:title, :body, :user, :image)
+    params.require(:post).permit(:title, :body, :user, :image, :remove_image)
   end
 
 end
