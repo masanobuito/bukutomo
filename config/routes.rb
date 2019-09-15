@@ -6,12 +6,12 @@ Rails.application.routes.draw do
     get 'favorites/index'
   end
   namespace :users do
-    resources :posts
+    resources :posts do
+      resources :post_comments
+    end
   end
-  namespace :users do
-    get 'users/index'
-    get 'users/show'
-  end
+  resources :users
+
   namespace :users do
     get 'homes/index'
   end

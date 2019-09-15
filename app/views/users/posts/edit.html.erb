@@ -10,22 +10,25 @@
 
 <!-- form_for部分 -->
 <%= form_for(@post, url: users_post_path) do |f| %>
-        <div style="margin:50px 0 0 0;">
-                <div class="container">
+        <div style="margin:50px 0 0 0;height:750px;">
+                <div class="container"   style="padding: 20px 0;
+                                                border-left: solid 7px #5d627b;
+                                                box-shadow: 2px 2px 4px gray;
+                                                background-color: white;">
                         <div class="row" style="height:320px;width:800px;margin:20px 0 0 0;margin: 0 auto;">
-                                <div class="col-sm-12" style="border: 1px solid #ccc;height:320px;">
+                                <div class="col-sm-12" style="height:320px;">
                                         <h4>タイトル</h4>
                                                 <%= f.text_field :title, class:"form-control" %>
                                         <h4>本文</h4>
                                                 <%= f.text_area :body, style:"height:200px;width:765px;", class:"form-control" %>
                                 </div>
                         </div>
-                        <div class="row" style="width:800px;border: 1px solid #ccc;margin: 0 auto;margin-top: 50px;">
+                        <div class="row" style="width:800px;margin: 0 auto;margin-top: 50px;">
                                 <div class="col-sm-12">
                                         <%= f.attachment_field :image %>
                                 </div>
                         </div>
-                        <div class="row" style="width:800px;border: 1px solid #ccc;margin: 0 auto;margin-top: 50px;">
+                        <div class="row" style="width:800px;margin: 0 auto;margin-top: 50px;">
                                 <div class="col-sm-12">
                                         <% if f.object.image %>
                                                 <%= attachment_image_tag @post, :image, style: "height: 100px;" %>
@@ -33,7 +36,7 @@
                                         <% end %>
                                 </div>
                         </div>
-                        <div class="row" style="width:800px;border: 1px solid #ccc;margin: 0 auto;margin-top: 50px;">
+                        <div class="row" style="width:800px;margin: 0 auto;margin-top: 50px;">
                                 <div class="col-sm-12">
                                 <%= f.submit '保存', class:'btn btn-default' %>
                                 </div>

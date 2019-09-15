@@ -8,12 +8,15 @@
 </div>
 
 <div style="margin:50px 0 0 0;">
-        <div class="container">
+        <div class="container"   style="padding: 20px 0;
+                                        border-left: solid 7px #5d627b;
+                                        box-shadow: 2px 2px 4px gray;
+                                        background-color: white;">
                 <div class="row" style="width:800px;margin:20px 0 0 0;margin: 0 auto;">
-                        <div class="col-sm-3" style="height:100px;border: 1px solid #ccc;">
+                        <div class="col-sm-3" style="height:100px;">
                                 <%= attachment_image_tag @post, :image, style: "height: 100px;", fallback: "no_image.jpg" %>
                         </div>
-                        <div class="col-sm-9" style="border: 1px solid #ccc;word-wrap: break-word;">
+                        <div class="col-sm-9" style="word-wrap: break-word;">
                                 <p style="font-size: 25px;">
                                 タイトル：<strong><%= @post.title %></strong>
                                 </p>
@@ -23,10 +26,23 @@
                                 更新日時：<%= @post.updated_at.strftime("%Y-%m-%d %H:%M") %>
                         </div>
                 </div>
-                <div class="row" style="width:800px;border: 1px solid #ccc;margin: 0 auto;margin-top: 50px;">
+                <div class="row" style="width:800px;margin: 0 auto;margin-top: 50px;">
                         <p class="col-sm-12">
                         <%= @post.body %>
                         </p>
                 </div>
         </div>
 </div>
+
+<div>
+    <h4>コメント</h4>
+    <div id="post_comments_area">
+      <%# 投稿されたコメント一覧をブログの詳細ページに表示するためのrender %>
+      <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
+    </div>  
+    <% if user_signed_in? %>
+      <%# コメント入力欄をブログの詳細ページに表示するためのrender %>
+      <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
+    <% end %>
+  </div>
+
