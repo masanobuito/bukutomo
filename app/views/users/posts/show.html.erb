@@ -11,7 +11,7 @@
         <div class="container">
                 <div class="row" style="width:800px;margin:20px 0 0 0;margin: 0 auto;">
                         <div class="col-sm-3" style="height:100px;border: 1px solid #ccc;">
-                                画像
+                                <%= attachment_image_tag @post, :image, style: "height: 100px;", fallback: "no_image.jpg" %>
                         </div>
                         <div class="col-sm-9" style="border: 1px solid #ccc;word-wrap: break-word;">
                                 <p style="font-size: 25px;">

@@ -28,6 +28,7 @@
                         <div class="row" style="width:800px;border: 1px solid #ccc;margin: 0 auto;margin-top: 50px;">
                                 <div class="col-sm-12">
                                         <% if f.object.image %>
+                                                <%= attachment_image_tag @post, :image, style: "height: 100px;" %>
                                                 <p><%= f.check_box :remove_image %>既存の画像を削除する</p>
                                         <% end %>
                                 </div>
