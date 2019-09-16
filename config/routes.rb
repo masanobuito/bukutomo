@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   namespace :users do
     resources :posts do
       resources :post_comments
+      resource :favorites, only: [:index, :create, :destroy]
+      resource :yomitais, only: [:index, :create, :destroy]
     end
   end
   resources :users
+
 
   namespace :users do
     get 'homes/index'
