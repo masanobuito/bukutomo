@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :users do
-    get 'yomitaies/index'
+    get 'yomitais/index'
   end
   namespace :users do
     get 'favorites/index'
@@ -12,7 +12,13 @@ Rails.application.routes.draw do
       resource :yomitais, only: [:index, :create, :destroy]
     end
   end
-  resources :users
+  # resources :users
+
+  namespace :users do
+    get "index" => "users#index", as: "index"
+    get "" => "users#show", as: "show"
+    get "search" => "users#search", as: "search"
+  end
 
 
   namespace :users do

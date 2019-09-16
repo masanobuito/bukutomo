@@ -1,2 +1,29 @@
 <h1>Users::Users#index</h1>
 <p>Find me in app/views/users/users/index.html.erb</p>
+
+<h3>いいね！ランキング</h3>
+<% @favorite_ranks.each.with_index(1) do |post,i| %>
+      第
+    <%= i %>
+    位
+  <%= post.title %>
+  <br>
+<% end %>
+<h3>読みたい！ランキング</h3>
+<% @yomitai_ranks.each.with_index(1) do |post,i| %>
+      第
+    <%= i %>
+    位
+  <%= post.title %>
+  <br>
+<% end %>
+
+    <h3>ransack検索</h3>
+<%= search_form_for @search, url: users_search_path do |f| %>
+  <%# nameカラムに対して部分一致検索ができる %>
+  <%= f.label :title_cont, "タイトル検索" %>
+  <%= f.search_field :title_cont %>
+
+   <%# 検索ボタン %>
+  <div class="actions"><%= f.submit "検索" %></div>
+<% end %>
