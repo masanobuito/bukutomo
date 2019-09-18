@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
     def after_sign_up_path_for(resource)
         if current_user
-            users_users_show_path
+            users_show_path
         elsif current_admin
             admins_admins_show_path
         else
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 
     def after_sign_in_path_for(resource)
         if current_user
-            users_users_show_path
+            users_show_path
         elsif current_admin
             admins_admins_show_path
         else
