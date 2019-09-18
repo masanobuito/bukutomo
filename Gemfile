@@ -69,3 +69,11 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari','~> 1.1.1'
 gem 'ransack'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+gem 'rails-i18n'
+gem 'devise-i18n'
