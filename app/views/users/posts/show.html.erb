@@ -13,9 +13,9 @@
                                         border-left: solid 7px #5d627b;
                                         box-shadow: 2px 2px 4px gray;
                                         background-color: white;">
-                <div class="row" style="width:800px;margin:20px 0 0 0;margin: 0 auto;">
-                        <div class="col-sm-3" style="height:100px;">
-                                <%= attachment_image_tag @post, :image, style: "height: 100px;", fallback: "no_image.jpg" %>
+                <div class="row" style="margin:20px 0 0 0;margin: 0 auto;">
+                        <div class="col-sm-3" style="">
+                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.jpg", size:'260x175' %>
                         </div>
                         <div class="col-sm-9" style="word-wrap: break-word;">
                                 <p style="font-size: 25px;">
@@ -27,7 +27,7 @@
                                 更新日時：<%= @post.updated_at.strftime("%Y-%m-%d %H:%M") %>
                         </div>
                 </div>
-                <div class="row" style="width:800px;margin: 0 auto;margin-top: 50px;">
+                <div class="row" style="margin: 0 auto;margin-top: 50px;">
                         <p class="col-sm-12">
                         <%= @post.body %>
                         </p>
@@ -35,23 +35,35 @@
         </div>
 </div>
 
-<div>
-    <h4>コメント</h4>
-    <div id="post_comments_area">
-      <%# 投稿されたコメント一覧をブログの詳細ページに表示するためのrender %>
-      <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
-    </div>  
-    <% if user_signed_in? %>
-      <%# コメント入力欄をブログの詳細ページに表示するためのrender %>
-      <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
-    <% end %>
-  </div>
+<div class="container">
+        <div class="row" style="margin-top:10px;">
+                <div class="col-sm-2">
+                        <div id="favorites_buttons_<%= @post.id %>">
+                        <%= render partial: 'users/favorites/favorite', locals: { post: @post } %>
+                        </div>
+                </div>
+                <div class="col-sm-2-offset-4">
+                        <div id="yomitais_buttons_<%= @post.id %>">
+                        <%= render partial: 'users/yomitais/yomitai', locals: { post: @post } %>
+                        </div>
+                </div>
+        </div>
+</div>
+
+<div class="container">
+        <div class="row">
+                <h4>コメント</h4>
+
+                        <div id="post_comments_area">
+                                <%# 投稿されたコメント一覧をブログの詳細ページに表示するためのrender %>
+                                <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
+                        </div>  
+                <%# </div> %>
+                <% if user_signed_in? %>
+                <%# コメント入力欄をブログの詳細ページに表示するためのrender %>
+                <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
+                <% end %>
+        </div>
+</div>
 
 
-  <div id="favorites_buttons_<%= @post.id %>">
-      <%= render partial: 'users/favorites/favorite', locals: { post: @post } %>
-    </div>
-
-  <div id="yomitais_buttons_<%= @post.id %>">
-      <%= render partial: 'users/yomitais/yomitai', locals: { post: @post } %>
-    </div>

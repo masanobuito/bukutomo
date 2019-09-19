@@ -1,8 +1,8 @@
 <%= form_with(model: [:users, post, post_comment] ) do |form| %>
   <div>
-    <%= form.text_area :comment %>
+    <%= form.text_area :comment, class:"form-control" %>
   </div>
-  <div class="actions">
-    <%= form.submit "コメントをする" %>
+  <div class="actions" style="margin-bottom:20px;">
+    <%= form.submit "コメントをする", class:'btn btn-default btn-sm' %>
   </div>
 <% end %>

@@ -3,7 +3,10 @@ class Users::UsersController < ApplicationController
     # ランキング機能
     @favorite_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
     @yomitai_ranks = Post.find(Yomitai.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    # ransack
     @search = Post.ransack(params[:q])
+    # 記事情報
+    @posts = Post.page(params[:page]).reverse_order
   end
 
   def show
@@ -11,6 +14,7 @@ class Users::UsersController < ApplicationController
   end
 
   def search
+    # ransack
     @search = Post.ransack(params[:q])
     @results = @search.result
   end

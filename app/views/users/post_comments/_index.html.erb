@@ -1,9 +1,24 @@
 <% post_comments.each do |post_comment| %>
-  <% unless post_comment.id.nil? %>
-    <p><%= link_to "#{post_comment.user.name}さん", users_show_path(post_comment.user.id) %></p>
-    <p>コメント：<%= post_comment.comment %></p>
-    <% if post_comment.user == current_user %>
-      <p><%= link_to 'コメントを削除する', users_post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, remote: true %></p>
-    <% end %>
-  <% end %>
+    <div style="border: 1px dashed #ccc;
+                top: 5px;
+                bottom: 5px;
+                left: 5px;
+                right: 5px;
+                box-shadow: 0 0 0 1px #fff;
+                background-color: #fff;
+                width: 1000px;
+                margin: 10px 0;
+                padding: 5px;
+                ">
+
+            <% unless post_comment.id.nil? %>
+            <% if false %>//コメントアウトしてます//<p><%= link_to "#{post_comment.user.name}さん", users_show_path(post_comment.user.id) %></p><% end %>
+            <p><%= post_comment.user.name %></p>
+            <p>コメント：<%= post_comment.comment %></p>
+            <% if post_comment.user == current_user %>
+                <p><%= link_to 'コメントを削除する', users_post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, remote: true %></p>
+            <% end %>
+            <% end %>
+
+    </div>
 <% end %>

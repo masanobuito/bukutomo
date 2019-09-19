@@ -1,32 +1,85 @@
-<%= render 'layouts/users_header'%>
+        <%= render 'layouts/users_header'%>
+
+        <div class="container">
+                <div class="row">
+                        <div class="col-sm-4">
+                                <h1 style="margin: 0 0 20px;">トップページ</h1>
+                        </div>
+                        <div class="form-inline col-sm-8" style="text-align: center;">
+                                <%# ransack検索 %>
+                                <%= search_form_for @search, url: users_search_path do |f| %>
+                                <%# nameカラムに対して部分一致検索ができる %>
+                                <%# <%= f.label :title_cont, "タイトル検索" %>
+                                <%= f.search_field :title_cont, class:"form-control", placeholder:"タイトル検索" %>
+                                <%# 検索ボタン %>
+                                <%= f.submit "検索", class:'btn btn-default' %>
+                                <% end %>
+                        </div>
+                </div>
+        </div>
 
 
-<h1>Users::Users#index</h1>(全員の投稿一覧・ランキング・検索機能のあるトップ画面)
-<p>Find me in app/views/users/users/index.html.erb</p>
+        <div class="container">
+                <div class="row" style="border: 1px dashed #ccc;
+                                        top: 5px;
+                                        bottom: 5px;
+                                        left: 5px;
+                                        right: 5px;
+                                        box-shadow: 0 0 0 1px #fff;
+                                        background-color: #fff;
+                                        width: 1000px;
+                                        margin:0 auto;
+                                        padding-bottom: 5px;
+                                        ">
+                        <div class="col-sm-6">
+                                <h3>いいね！ランキング</h3>
+                                <% @favorite_ranks.each.with_index(1) do |post,i| %>
+                                        <p>第 <%= i %>位
+                                        <%= post.title %>
+                                        </p>
+                                        
+                                <% end %>
+                        </div>
+                        <div class="col-sm-6">
+                                <h3>読みたい！ランキング</h3>
+                                <% @yomitai_ranks.each.with_index(1) do |post,i| %>
+                                        <p>第 <%= i %>位
+                                        <%= post.title %>
+                                        </p>
+                                <% end %>
+                        </div>
+                </div>
+        </div>
 
-<h3>いいね！ランキング</h3>
-<% @favorite_ranks.each.with_index(1) do |post,i| %>
-      第
-    <%= i %>
-    位
-  <%= post.title %>
-  <br>
+<% @posts.each do |post| %>
+<div class="container" style="margin-bottom:10px;">
+        <%= link_to users_post_path(post.id) do %>
+                <div class="row" style="height:200px;
+                                        /* width:800px; */
+                                        margin:20px 0 0 0;
+                                        border-left: solid 7px #5d627b;
+                                        box-shadow: 2px 2px 4px gray;
+                                        background-color: white;
+                                        ">
+                        <div class="col-sm-3" style="margin-top:12px;">
+                                <%= attachment_image_tag post, :image, :fill, 260, 175, fallback: "no_image.jpg", size:'260x175' %>
+                        </div>
+                        <div class="col-sm-7">
+                                <p style="font-size: 20px;margin-top: 10px;">
+                                        タイトル：<strong><%= post.title.truncate(100) %></strong>
+                                </p>
+                                <p style="font-size: 15px;margin-top: 5px;">
+                                        投稿者：<%= post.user.name %>
+                                </p>
+                                作成日時：<%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+                                <br>
+                                更新日時：<%= post.updated_at.strftime("%Y-%m-%d %H:%M") %>
+                        </div>
+                </div>
+        <% end %>
+</div>
 <% end %>
-<h3>読みたい！ランキング</h3>
-<% @yomitai_ranks.each.with_index(1) do |post,i| %>
-      第
-    <%= i %>
-    位
-  <%= post.title %>
-  <br>
-<% end %>
 
-    <h3>ransack検索</h3>
-<%= search_form_for @search, url: users_search_path do |f| %>
-  <%# nameカラムに対して部分一致検索ができる %>
-  <%= f.label :title_cont, "タイトル検索" %>
-  <%= f.search_field :title_cont %>
-
-   <%# 検索ボタン %>
-  <div class="actions"><%= f.submit "検索" %></div>
-<% end %>
+<div style="margin-left:10px;">
+        <%= paginate @posts, class: "paginate" %>
+<div>

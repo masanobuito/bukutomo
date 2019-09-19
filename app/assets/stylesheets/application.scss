@@ -16,6 +16,9 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
 // Paper stack effect
 #login {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2),  
@@ -109,4 +112,8 @@
 // 背景画像
 .login-body {
     background: image-url('washi.jpg')
+}
+
+body {
+    background-color: #fcfbf8;
 }
