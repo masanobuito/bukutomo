@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
         if current_user
             users_show_path
         elsif current_admin
-            admins_admins_show_path
+            admins_posts_path
         else
             root_path
         end
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
         if current_user
             users_show_path
         elsif current_admin
-            admins_admins_show_path
+            admins_posts_path
         else
             root_path
         end

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    resources :users, only: [:index, :destroy]
+    resources :posts, only: [:index, :show, :destroy] do
+      resources :post_comments, only: [:destroy]
+    end
+  end
+
   namespace :users do
     get 'yomitais/index'
   end
@@ -7,7 +14,7 @@ Rails.application.routes.draw do
   end
   namespace :users do
     resources :posts do
-      resources :post_comments
+      resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:index, :create, :destroy]
       resource :yomitais, only: [:index, :create, :destroy]
     end

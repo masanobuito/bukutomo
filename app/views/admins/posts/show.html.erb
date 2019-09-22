@@ -1,12 +1,7 @@
-<%= render 'layouts/users_header'%>
+<%= render 'layouts/admins_header'%>
 
-<div class="container">
-        <div class="row">
-                <div class="col-md-12">
-                        <h1>ユーザー投稿詳細ページ</h1>
-                </div>
-        </div>
-</div>
+<h1>Admins::Posts#show</h1>
+<p>Find me in app/views/admins/posts/show.html.erb</p>
 
 <div style="margin:50px 0 0 0;">
         <div class="container"   style="padding: 20px 0;
@@ -35,6 +30,20 @@
         </div>
 </div>
 
+<div class="container">
+        <div class="row" style="margin-top:10px;">
+                <div class="col-md-2">
+                        <div id="favorites_buttons_<%= @post.id %>">
+                        <%= render partial: 'users/favorites/favorite', locals: { post: @post } %>
+                        </div>
+                </div>
+                <div class="col-md-2-offset-4">
+                        <div id="yomitais_buttons_<%= @post.id %>">
+                        <%= render partial: 'users/yomitais/yomitai', locals: { post: @post } %>
+                        </div>
+                </div>
+        </div>
+</div>
 
 <div class="container">
         <div class="row">
@@ -42,13 +51,9 @@
 
                         <div id="post_comments_area">
                                 <%# 投稿されたコメント一覧をブログの詳細ページに表示するためのrender %>
-                                <%= render partial: 'admins/post_comments/admins_index', locals: { post_comments: @post_comments } %>
+                                <%= render partial: 'admins/post_comments/aindex', locals: { post_comments: @post_comments } %>
                         </div>  
-                <%# </div> %>
-                <% if user_signed_in? %>
-                <%# コメント入力欄をブログの詳細ページに表示するためのrender %>
-                <%= render partial: 'admins/post_comments/admins_form', locals: { post_comment: @post_comment, post: @post } %>
-                <% end %>
+
         </div>
 </div>
 
