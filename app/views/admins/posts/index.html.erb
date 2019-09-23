@@ -1,21 +1,22 @@
 <%= render 'layouts/admins_header'%>
-<h1>Admins::Posts#index</h1>
-<p>Find me in app/views/admins/posts/index.html.erb</p>
+<div class="page-header text-center">
+        <h2>投稿一覧</h2>
+</div>
 
 
 <% @posts.each do |post| %>
 <div class="container">
         <%= link_to admins_post_path(post.id) do %>
-                <div class="row" style="height:110px;
-                                        width:800px;
+                <div class="row" style="height:200px;
+                                        /* width:800px; */
                                         margin:20px 0 0 0;
                                         border-left: solid 7px #5d627b;
                                         box-shadow: 2px 2px 4px gray;
                                         background-color: white;">
-                        <div class="col-md-3" style="height:110px;">
-                                <%= attachment_image_tag post, :image, style: "width: 100%;height: 100%;", fallback: "no_image.jpg" %>
+                        <div class="col-md-4 col-sm-3 col-xs-6" style="margin-top:12px;">
+                                <%= attachment_image_tag post, :image, :fill, 260, 175, fallback: "no_image.jpg", class:"img-responsive" %>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-xs-6">
                                 <p style="font-size: 20px;margin-top: 10px;">
                                         タイトル：<strong><%= post.title.truncate(18) %></strong>
                                 </p>
@@ -23,10 +24,8 @@
                                 <br>
                                 更新日時：<%= post.updated_at.strftime("%Y-%m-%d %H:%M") %>
                         </div>
-                        <div class="col-md-2" style=";">
-                                <div style="margin-top: 30px;">
-                                        <%= link_to '削除', admins_post_path(post), class:'btn btn-default btn-lg', method: :delete, data: { confirm: '削除しますか？' } %>
-                                </div>
+                        <div class="col-md-2 col-sm-3 hidden-xs" style="top:110px;left:50px;">
+                                <%= link_to '削除', admins_post_path(post), class:'btn btn-default btn-lg', method: :delete, data: { confirm: '削除しますか？' } %>
                         </div>
                 </div>
         <% end %>

@@ -1,7 +1,8 @@
 <%= render 'layouts/admins_header'%>
 
-<h1>Admins::Posts#show</h1>
-<p>Find me in app/views/admins/posts/show.html.erb</p>
+<div class="page-header text-center">
+        <h2>投稿詳細</h2>
+</div>
 
 <div style="margin:50px 0 0 0;">
         <div class="container"   style="padding: 20px 0;
@@ -10,7 +11,7 @@
                                         background-color: white;">
                 <div class="row" style="margin:20px 0 0 0;margin: 0 auto;">
                         <div class="col-md-3" style="">
-                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.jpg", size:'260x175' %>
+                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.jpg", class:"img-responsive" %>
                         </div>
                         <div class="col-md-9" style="word-wrap: break-word;">
                                 <p style="font-size: 25px;">
@@ -48,12 +49,10 @@
 <div class="container">
         <div class="row">
                 <h4>コメント</h4>
-
-                        <div id="post_comments_area">
-                                <%# 投稿されたコメント一覧をブログの詳細ページに表示するためのrender %>
-                                <%= render partial: 'admins/post_comments/aindex', locals: { post_comments: @post_comments } %>
-                        </div>  
-
+                <div id="post_comments_area">
+                        <%# 投稿されたコメント一覧をブログの詳細ページに表示するためのrender %>
+                        <%= render partial: 'admins/post_comments/aindex', locals: { post_comments: @post_comments } %>
+                </div>
         </div>
 </div>
 
