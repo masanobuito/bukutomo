@@ -29,3 +29,41 @@ $(function(){
     });
 });
 
+
+// マウスオーバーで画像拡大　class="magnify" がついてる画像
+$(function(){
+    $(window).load(function(){
+        var thumbSize = 175;      //拡大前
+        var magnifySize = 250;    //拡大後
+ 
+        $(".magnify").each(function(){
+            $(this).css({height:(thumbSize)});  //ここと＊１、＊２をwidthに変えれば横幅指定になる
+        });
+ 
+        var objWidth = $('.magnify').width();
+        var objHeight = $('.magnify').height();
+ 
+        $(".magnify").each(function(){
+            $(this).wrapAll('<span class="magnify_cover"></span>');
+            $(this).parent('.magnify_cover').css({
+                margin: '0 10px 10px 0',
+                width: (objWidth),
+                height: (objHeight),
+                float: 'left',
+                position: 'relative'
+            });
+        });
+ 
+        $(".magnify").hover(function(){
+            $(this).css({top:'0',left:'0',position: 'absolute',});
+            $(this).stop().animate({height:(magnifySize)},500,function(){　　//＊１
+                $(this).addClass('shadow');
+            });
+        }, function(){
+            $(this).stop().animate({height:(thumbSize)},300,function(){　　　//＊２
+                $(this).css({top:'',left:'',position: 'relative'});
+                $(this).removeClass('shadow');
+            });
+        });
+    });
+});

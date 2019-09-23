@@ -10,10 +10,10 @@
                                         box-shadow: 2px 2px 4px gray;
                                         background-color: white;">
                 <div class="row" style="margin:20px 0 0 0;margin: 0 auto;">
-                        <div class="col-md-3" style="">
-                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.jpg", class:"img-responsive" %>
+                        <div class="col-md-4 col-xs-12" style="">
+                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.jpg", class:"magnify" %>
                         </div>
-                        <div class="col-md-9" style="word-wrap: break-word;">
+                        <div class="col-md-8 col-xs-12" style="word-wrap: break-word;">
                                 <p style="font-size: 25px;">
                                 タイトル：<strong><%= @post.title %></strong>
                                 </p>
