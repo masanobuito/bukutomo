@@ -1,9 +1,6 @@
     <!DOCTYPE html>
-    <html>
+    <html lang="ja">
     <head>
-
-    <!-- CSSファイルの読み込み -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 
     <title>ブクトモ</title>
     </head>
@@ -11,7 +8,7 @@
 <%= render 'layouts/homes_header'%>
 
  <!-- main-visual -->
-  <section id="mv"><!-- 「子要素に<h>タグを含む箱」だからdivは使えない -->
+  <section id="mv">
     <div class="container">
       <h1 class="mv-title">ブクトモ！</h1>
       <p class="mv-text">本で人と繋がるSNS</p>
@@ -22,7 +19,7 @@
     <div class="c">
         <div class="box">
             <div class="content">
-                <h2 style="right: 100px;">01</h2>
+                <h2 style="right: 70px;transform: translateY(-80px);">01</h2>
                 <h3>About</h3>
                 <p>本好きの本好きによる本好きのためのサイト</p>
                 <p>オススメの本屋、読書スペースなどの本に関係する情報を教え合おう！</p>
@@ -32,7 +29,7 @@
         </div>
         <div class="box">
             <div class="content">
-                <h2 style="right: 65px;">02</h2>
+                <h2 style="right: 67px;transform: translateY(-57px);">02</h2>
                 <h3>特徴</h3>
                 <p>本に関係する投稿ができ、投稿に対してコメントすることができます。</p>
                 <p>これいいな！と思った投稿には「いいね！」「読みたい！」ボタンを押そう！</p>
@@ -42,7 +39,7 @@
         </div>
         <div class="box">
             <div class="content">
-                <h2 style="right: 57px;">03</h2>
+                <h2 style="right: 61px;transform: translateY(-102px);">03</h2>
                 <h3>ブクトモ！を見てみる</h3>
                 <p>未登録でもご利用いただけます</p>
                 <%= link_to "ブクトモ！", users_index_path %>
@@ -50,7 +47,7 @@
         </div>
         <div class="box">
             <div class="content">
-                <h2 style="right: 57px;">04</h2>
+                <h2 style="right: 66px;transform: translateY(-80px);">04</h2>
                 <h3>新規登録</h3>
                 <p>登録するとコメントや「いいね！」「読みたい！」ができるようになります。</p>
                 <%= link_to "新規登録", new_user_registration_path %>
@@ -59,6 +56,7 @@
     </div>
 </div>
 </section>
+<div id="page_top"><a href="#"></a></div>
 （仮置）<%= link_to "管理者新規登録", new_admin_registration_path %>
     　　<%= link_to "管理者ログイン", new_admin_session_path %>
 </html>

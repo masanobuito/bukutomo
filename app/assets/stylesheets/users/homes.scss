@@ -1,3 +1,6 @@
+  ////////////////
+ // Aboutページ //
+////////////////
 
 
 .b {
@@ -75,8 +78,8 @@
 .content {
     position: relative;
     padding: 20px;
-    transform: translateY(40px);
-    padding-top: 30%;
+    transform: translateY(83px);
+    // padding-top: 30%;
 }
 
 .box .content h2 {
@@ -135,18 +138,19 @@
 }
 
 
-//////////////////
+  ///////////////////
+ // メインビジュアル //
+///////////////////
 
-/* main-visual */
-  
 #mv{
     width: 100%;
     height: 650px;
     text-align: center; /* 要素を軸に文字を中央寄せ */
     color: #FAFAFA;
-    background: image-url('book.jpg'); /* 背景画像を指定 */
+    // background: image-url('book.jpg'); /* 背景画像を指定 */
     background-size: cover; /* 背景画像のサイズを操作（coverは縦横比を保ち、表示エリアに余白がでないように画像が拡大・縮小し、切り取られる） */
     background-position: center; /* 背景画像の位置を調整するときに使用するプロパティ（center(中央に配置)） */
+    background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),image-url('book.jpg');
 }
 .mv-title{
     padding-top: 200px; /* padding=（隣接する要素との間に）隙間が空かない、背景色がつく　margin＝隙間が空く、背景色がつかない */
@@ -160,3 +164,29 @@
     color: #FAFAFA;
     font-family: 'Noto Sans JP', sans-serif;
 }
+
+  ///////////////////
+ // topに戻るボタン //
+///////////////////
+
+#page_top{
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+    z-index: 999;
+  }
+  #page_top a{
+    width: 60px;
+    height: 60px;
+    text-decoration: none;
+  }
+  #page_top a::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f139';
+    font-size: 50px;
+    color: #3fefee;
+  }

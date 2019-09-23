@@ -5,11 +5,11 @@
 
 
 <% @posts.each do |post| %>
-<div class="container">
+<div class="container" style="margin-bottom:20px;">
         <%= link_to admins_post_path(post.id) do %>
                 <div class="row" style="height:200px;
                                         /* width:800px; */
-                                        margin:20px 0 0 0;
+                                        margin:10px 0 0 0;
                                         border-left: solid 7px #5d627b;
                                         box-shadow: 2px 2px 4px gray;
                                         background-color: white;">
@@ -31,3 +31,4 @@
         <% end %>
 </div>
 <% end %>
+<div id="page_top"><a href="#"></a></div>
