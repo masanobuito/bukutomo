@@ -1,11 +1,7 @@
 <%= render 'layouts/users_header'%>
 
-<div class="container">
-        <div class="row">
-                <div class="col-md-12">
-                        <h1>ユーザー投稿詳細ページ</h1>
-                </div>
-        </div>
+<div class="page-header text-center">
+        <h2>投稿詳細</h2>
 </div>
 
 <div style="margin:50px 0 0 0;">
@@ -15,7 +11,7 @@
                                         background-color: white;">
                 <div class="row" style="margin:20px 0 0 0;margin: 0 auto;">
                         <div class="col-md-3" style="">
-                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.jpg", size:'260x175' %>
+                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.jpg", class:"img-responsive" %>
                         </div>
                         <div class="col-md-9" style="word-wrap: break-word;">
                                 <p style="font-size: 25px;">
@@ -42,12 +38,12 @@
 
                         <div id="post_comments_area">
                                 <%# 投稿されたコメント一覧をブログの詳細ページに表示するためのrender %>
-                                <%= render partial: 'admins/post_comments/admins_index', locals: { post_comments: @post_comments } %>
+                                <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
                         </div>  
                 <%# </div> %>
                 <% if user_signed_in? %>
                 <%# コメント入力欄をブログの詳細ページに表示するためのrender %>
-                <%= render partial: 'admins/post_comments/admins_form', locals: { post_comment: @post_comment, post: @post } %>
+                <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
                 <% end %>
         </div>
 </div>
