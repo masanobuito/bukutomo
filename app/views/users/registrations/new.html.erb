@@ -1,9 +1,19 @@
 <body class="login-body">
+<%# <%= render "devise/shared/error_messages", resource: resource %>
+<% if @user.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
   <div id="login", style="height: 460px;">
       <h1 class="log-title">Sign up</h1>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+        
 
         <div class="field-login">
           <%= f.label :ユーザーネーム %><br />

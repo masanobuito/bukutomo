@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :yomitais, dependent: :destroy
+
+
+  validates :name, presence: true
+    validates :name, length: { in: 1..30 }
+
 end
