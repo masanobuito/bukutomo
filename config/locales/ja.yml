@@ -4,6 +4,8 @@ ja:
     attributes:
       user:
         name: 名前
+      admin:
+        name: 名前
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
