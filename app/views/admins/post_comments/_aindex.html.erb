@@ -15,7 +15,7 @@
             <% if false %>//コメントアウトしてます//<p><%= link_to "#{post_comment.user.name}さん", users_show_path(post_comment.user.id) %></p><% end %>
             <p><%= post_comment.user.name %></p>
             <p>コメント：<%= post_comment.comment %></p>
-                <p><%= link_to 'コメントを削除する', admins_post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, remote: true %></p>
+                <p><%= link_to 'コメントを削除する', admins_post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, remote: true, class:'btn btn-danger btn-xs', style:'color:white;' %></p>
             <% end %>
 
     </div>

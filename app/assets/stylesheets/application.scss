@@ -123,3 +123,37 @@ body {
     z-index: 100;
     box-shadow: 0 0 10px #333;
 }
+
+
+// タイトル見出し
+.midashi {
+    position: relative;/*相対位置*/
+    line-height: 1.4;/*行高*/
+    display: inline-block;
+    background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: cornflowerblue;
+  }
+  
+  .midashi:before, .midashi:after { 
+    position: relative;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    font-size: 1.0em;
+    color: #ff6a6a;
+  }
+  .midashi:before {
+    content:"\f053";/*アイコン種類*/
+    padding-right: 0.5em;
+    font-weight: 900;
+  }
+  .midashi:after {
+    content:"\f054";/*アイコン種類*/
+    padding-left: 0.5em;
+    font-weight: 900;
+  }
+
+  a:link { color : #000000; }
+  a:visited { color : #000000; }
