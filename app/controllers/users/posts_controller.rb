@@ -1,4 +1,9 @@
 class Users::PostsController < ApplicationController
+
+  before_action :admin_signed_in
+  before_action :authenticate_user!, except: [:show]
+  before_action :store_location
+
   def index
     @posts = Post.where(user_id: current_user.id)
     @user = User.find(current_user.id)

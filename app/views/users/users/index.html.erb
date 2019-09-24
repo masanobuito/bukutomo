@@ -66,8 +66,8 @@
                                 <%= attachment_image_tag post, :image, :fill, 260, 175, fallback: "no_image.jpg", class:"img-responsive" %>
                         </div>
                         <div class="col-xs-6">
-                                <p style="font-size: 20px;margin-top: 10px;">
-                                        タイトル：<strong><%= post.title.truncate(100) %></strong>
+                                <p style="font-size: 20px;margin-top: 10px;word-wrap: break-word;">
+                                        タイトル：<strong><%= post.title.truncate(40) %></strong>
                                 </p>
                                 <p style="font-size: 15px;margin-top: 5px;">
                                         投稿者：<%= post.user.name %>

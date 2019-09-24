@@ -1,4 +1,9 @@
 class Admins::PostsController < ApplicationController
+
+  before_action :user_signed_in
+  before_action :authenticate_admin!
+  before_action :store_location
+
   def index
     @posts = Post.all
   end

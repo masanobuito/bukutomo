@@ -1,8 +1,43 @@
 <%= render 'layouts/users_header'%>
 
 <% if @results.any? %> 
-   <h3>ransack検索結果</h3>
- <% @results.each do |result| %>
-   <p><%= result.title %></p>
- <% end %>
+
+<div class="page-header text-center">
+        <h2>検索結果</h2>
+</div>
+
+<% @results.each do |result| %>
+<div class="container" style="margin-bottom:20px;max-width: 700px;">
+        <%= link_to users_post_path(result.id) do %>
+                <div class="row" style="height:200px;
+                                        /* width:800px; */
+                                        /* margin:20px 0 0 0; */
+                                        border-left: solid 7px #5d627b;
+                                        box-shadow: 2px 2px 4px gray;
+                                        background-color: white;
+                                        ">
+                        <div class="col-xs-6" style="margin-top:12px;">
+                                <%= attachment_image_tag result, :image, :fill, 260, 175, fallback: "no_image.jpg", class:"img-responsive" %>
+                        </div>
+                        <div class="col-xs-6">
+                                <p style="font-size: 20px;margin-top: 10px;word-wrap: break-word;">
+                                        タイトル：<strong><%= result.title.truncate(40) %></strong>
+                                </p>
+                                <p style="font-size: 15px;margin-top: 5px;">
+                                        投稿者：<%= result.user.name %>
+                                </p>
+                                作成日時：<%= result.created_at.strftime("%Y-%m-%d %H:%M") %>
+                                <br>
+                                更新日時：<%= result.updated_at.strftime("%Y-%m-%d %H:%M") %>
+                        </div>
+                </div>
+        <% end %>
+</div>
 <% end %>
+<% end %>
+
+<div style="margin-left:10px;">
+        <%= paginate @results, class: "paginate" %>
+<div>
+
+<div id="page_top"><a href="#"></a></div>

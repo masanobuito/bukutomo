@@ -36,5 +36,23 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def user_signed_in
+		if user_signed_in?
+			flash[:notice] = "ユーザーでログインしています。一度ログアウトしてください"
+			redirect_to session[:return_to]
+		end
+	end
+	def admin_signed_in
+		if admin_signed_in?
+			flash[:notice] = "管理者でログインしています。一度ログアウトしてください"
+			redirect_to session[:return_to]
+		end
+    end
+
+    def store_location
+		session[:return_to] = request.url
+	end
+    
+
 
 end

@@ -1,4 +1,7 @@
 class Users::FavoritesController < ApplicationController
+  
+  before_action :admin_signed_in
+
   def index
   end
 
