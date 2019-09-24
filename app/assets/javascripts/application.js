@@ -12,9 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require_tree .
 
 // スムーススクロール
@@ -67,3 +66,14 @@ $(function(){
         });
     });
 });
+
+
+// 文字数カウンター
+$(function(){
+    $("#input-text").on("keyup", function() {
+        let countNum = String($(this).val().length);
+        $("#counter").text(countNum + "文字");
+    });
+});
+
+

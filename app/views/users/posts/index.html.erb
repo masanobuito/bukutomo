@@ -1,15 +1,9 @@
 <%= render 'layouts/users_header'%>
 
-<div class="container">
-        <div class="row">
-                <div class="col-md-6">
-                        <h1><%= @user.name %>さんの投稿一覧</h1>
-                </div>
-                <div class="col-md-6">
-                        <%= link_to '新規追加', new_users_post_path, class:'btn btn-default', style:'margin-top: 23px;' %>
-                </div>
-        </div>
+<div class="page-header text-center">
+        <h2><%= @user.name %>さんの投稿一覧</h2>
 </div>
+
 
 <% @posts.each do |post| %>
 <div class="container">

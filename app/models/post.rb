@@ -5,6 +5,11 @@ class Post < ApplicationRecord
     has_many :favorites, dependent: :destroy
     has_many :yomitais, dependent: :destroy
 
+    validates :title, presence: true
+    validates :title, length: { maximum: 150 }
+    validates :body, presence: true
+    validates :body, length: { maximum: 280 }
+
     def favorited_by?(user)
         favorites.where(user_id: user.id).exists?
     end
