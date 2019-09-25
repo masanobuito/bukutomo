@@ -6,17 +6,19 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :users do
-    get 'yomitais/index'
-  end
-  namespace :users do
-    get 'favorites/index'
-  end
+  # 開発中に一覧ページはいらないかなーと思ったので削除
+  # namespace :users do
+  #   get 'yomitais/index'
+  # end
+  # namespace :users do
+  #   get 'favorites/index'
+  # end
+
   namespace :users do
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
-      resource :favorites, only: [:index, :create, :destroy]
-      resource :yomitais, only: [:index, :create, :destroy]
+      resource :favorites, only: [:create, :destroy]
+      resource :yomitais, only: [:create, :destroy]
     end
   end
   # resources :users
@@ -32,8 +34,8 @@ Rails.application.routes.draw do
     get 'homes/index'
   end
 
-
-  devise_for :admins, :controllers => {
+  # 自前のDeviseControllerを使うよう指示(知らない人のURL直打ちでの管理者登録を防止するためにpath: :admins_193でURLをadmins_193に変更している)
+  devise_for :admins, path: :admins_193, :controllers => {
     :sessions => 'admins/sessions' ,
     :passwords => 'admins/passwords',
     :registrations => 'admins/registrations'
@@ -43,6 +45,7 @@ Rails.application.routes.draw do
     :passwords => 'users/passwords',
     :registrations => 'users/registrations'
   }
+
 
   root "users/homes#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

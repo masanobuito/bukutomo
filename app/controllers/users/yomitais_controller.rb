@@ -2,8 +2,8 @@ class Users::YomitaisController < ApplicationController
 
   before_action :admin_signed_in
 
-  def index
-  end
+  # def index
+  # end
 
   def create
     @post = Post.find(params[:post_id])
