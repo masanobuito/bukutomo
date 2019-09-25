@@ -5,7 +5,7 @@ class Users::PostsController < ApplicationController
   before_action :store_location
 
   def index
-    @posts = Post.where(user_id: current_user.id)
+    @posts = Post.where(user_id: current_user.id).page(params[:page]).reverse_order
     @user = User.find(current_user.id)
     # @posts = Post.all
   end

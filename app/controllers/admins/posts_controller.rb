@@ -5,7 +5,7 @@ class Admins::PostsController < ApplicationController
   before_action :store_location
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).reverse_order
   end
 
   def show

@@ -111,7 +111,7 @@
 }
 // 背景画像
 .login-body {
-    background: image-url('washi.jpg')
+    background: image-url('washi1.jpg');
 }
 
 body {
@@ -147,7 +147,7 @@ body {
   .midashi:before {
     content:"\f053";/*アイコン種類*/
     padding-right: 0.5em;
-    font-weight: 900;
+    font-weight: 900; /*アイコンによってはこれを付けないと表示されない*/
   }
   .midashi:after {
     content:"\f054";/*アイコン種類*/
@@ -155,5 +155,6 @@ body {
     font-weight: 900;
   }
 
+//   リンク文字の色
   a:link { color : #000000; }
   a:visited { color : #000000; }

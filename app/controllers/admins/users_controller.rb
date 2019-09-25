@@ -5,7 +5,7 @@ class Admins::UsersController < ApplicationController
   before_action :store_location
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(10).reverse_order
   end
 
   def destroy

@@ -11,7 +11,7 @@
                                         background-color: white;">
                 <div class="row" style="margin:20px 0 0 0;margin: 0 auto;">
                         <div class="col-md-4 col-xs-12" style="">
-                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.jpg", class:"magnify" %>
+                                <%= attachment_image_tag @post, :image, :fill, 260, 175, fallback: "no_image.png", class:"magnify" %>
                         </div>
                         <div class="col-md-8 col-xs-12" style="word-wrap: break-word;">
                                 <p style="font-size: 25px;">
@@ -27,6 +27,21 @@
                         <p class="col-md-12">
                         <%= @post.body %>
                         </p>
+                </div>
+        </div>
+</div>
+
+<div class="container">
+        <div class="row" style="margin-top:10px;">
+                <div class="col-sm-2">
+                        <div id="favorites_buttons_<%= @post.id %>">
+                        <%= render partial: 'users/favorites/favorite', locals: { post: @post } %>
+                        </div>
+                </div>
+                <div class="col-sm-2-offset-4">
+                        <div id="yomitais_buttons_<%= @post.id %>">
+                        <%= render partial: 'users/yomitais/yomitai', locals: { post: @post } %>
+                        </div>
                 </div>
         </div>
 </div>
@@ -47,5 +62,4 @@
                 <% end %>
         </div>
 </div>
-
 

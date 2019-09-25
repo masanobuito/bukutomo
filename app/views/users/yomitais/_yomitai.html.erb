@@ -9,7 +9,7 @@
     <% else %>
     <li style="list-style: none;">
         <%= link_to users_post_yomitais_path(@post), method: :post, remote: true do %>
-        <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <i class="far fa-heart" aria-hidden="true"></i>
         <%= @post.yomitais.count %> 読みたい！
         <% end %>
     </li>
