@@ -150,7 +150,7 @@
     // background: image-url('book.jpg'); /* 背景画像を指定 */
     background-size: cover; /* 背景画像のサイズを操作（coverは縦横比を保ち、表示エリアに余白がでないように画像が拡大・縮小し、切り取られる） */
     background-position: center; /* 背景画像の位置を調整するときに使用するプロパティ（center(中央に配置)） */
-    background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),image-url('book.jpg');
+    background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),image-url('/images/book.jpg');
 }
 .mv-title{
     padding-top: 200px; /* padding=（隣接する要素との間に）隙間が空かない、背景色がつく　margin＝隙間が空く、背景色がつかない */
