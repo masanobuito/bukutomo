@@ -6,6 +6,9 @@ ja:
         name: 名前
       admin:
         name: 名前
+      post:
+        title: タイトル
+        body: 本文
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
