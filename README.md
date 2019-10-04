@@ -27,19 +27,17 @@
 
 使用している技術一覧：
 
+* Ruby
 * Ruby on Rails
-* SQLite
+* MySQL
+* Git
 * Active Record
 * Bootstrap
-* AWS(EC2,RDS,EIP,Route 53,LoadBalancers,ACM)
+* AWS(EC2,RDS,EIP,Route 53,ALB,ACM)
+* ドメイン取得（お名前.com）
 * Ajax
 * jQuery
-* Action Mailer
-* ransack
-* Devise
-* kaminari
-* rails-i18n
-* devise-i18n
+
 
 使用ツール一覧：
 
