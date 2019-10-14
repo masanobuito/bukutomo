@@ -105,7 +105,7 @@
     transform: translateY(2px);
 }
 
-// フォーム下のマージン（styleで直書きしても良かった気が。。）
+// フォーム下のマージン
 .field-login {
     margin-bottom: 20px;
 }
@@ -118,7 +118,7 @@ body {
     background-color: #fcfbf8;
 }
 
-// jQueryを使った画像拡大時の処理（z-indexを付けないと画像が前面に出ない。。。（泣））
+// jQueryを使った画像拡大時の処理（z-indexを付けないと画像が前面に出ない）
 .shadow {
     z-index: 100;
     box-shadow: 0 0 10px #333;
